@@ -106,6 +106,24 @@ Enter choice:
 🌍 [LinkedIn](https://www.linkedin.com/in/bansi-bhalala/)  
 📁 [GitHub](https://github.com/Bansi26)
 
+## Project Screenshots
+
+### Main Menu  
+![Main Menu](./images/main_menu.png)
+
+### Add Student  
+![Add Student](./images/add_student.png)
+
+### View Students  
+![View Students](./images/view_students.png)
+
+### Delete Student  
+![Delete Student](./images/delete_student.png)
+
+### Database Table  
+![Database Table](./images/mysql_table.png)
+
+
 ---
 
 ## 📄 License
