@@ -49,6 +49,7 @@ Student
  └── contains → id, name, marks1-3
  └── has methods → getAverage(), getGrade()
 
+
 ---
 
 ## ✅ Key Features
