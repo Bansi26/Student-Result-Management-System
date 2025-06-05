@@ -41,7 +41,6 @@ Classes & Relationships
 | `Main`       | `StudentDAO`   | Uses                 | Main uses DAO to perform user-selected actions. |
 
 ## Diagram Overview (Bullet Visual)
-
 Main
  └── uses → StudentDAO
               ├── uses → Student
