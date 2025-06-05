@@ -23,44 +23,32 @@ StudentResultManagement/
 └── database/
 └── schema.sql # MySQL database and table creation
 
+## 🎯 UML Diagram (Descriptive Tabular Format)
+Classes & Relationships
 ---
+| Class Name       | Attributes & Methods                                                                                                         | Description                                                                          |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Student**      | - `id: int`<br> - `name: String`<br> - `marks1, marks2, marks3: int`<br> + `getAverage(): double`<br> + `getGrade(): String` | Represents a student and their marks. Contains logic to calculate average and grade. |
+| **DBConnection** | - `URL: String`<br> - `USER: String`<br> - `PASSWORD: String`<br> + `getConnection(): Connection`                            | Manages MySQL database connection.                                                   |
+| **StudentDAO**   | + `addStudent(Student): void`<br> + `deleteStudent(int): void`<br> + `viewAllStudents(): void`                               | Contains all CRUD operations using JDBC for the Student model.                       |
+| **Main**         | + `main(String[] args): void`                                                                                                | Contains the main menu-based CLI logic to interact with users.                       |
 
-## 📐 UML Diagram (Text Format)
+## Class Relationships
+| From Class   | → To Class     | Type of Relationship | Description                                     |
+| ------------ | -------------- | -------------------- | ----------------------------------------------- |
+| `StudentDAO` | `Student`      | Uses                 | DAO operates on Student objects.                |
+| `StudentDAO` | `DBConnection` | Dependency           | DAO uses DBConnection to access MySQL.          |
+| `Main`       | `StudentDAO`   | Uses                 | Main uses DAO to perform user-selected actions. |
 
-+-------------------+ +-------------------+
-| Student | | DBConnection |
-+-------------------+ +-------------------+
-| - id: int | | - URL |
-| - name: String | | - USER |
-| - marks1: int | | - PASSWORD |
-| - marks2: int | +-------------------+
-| - marks3: int | | + getConnection() |
-+-------------------+ +-------------------+
-| + getAverage() |
-| + getGrade() |
-+-------------------+
+## Diagram Overview (Bullet Visual)
 
-markdown
-     |
-     ↓
-+-----------------------+
-| StudentDAO |
-+-----------------------+
-| + addStudent() |
-| + deleteStudent() |
-| + viewAllStudents() |
-+-----------------------+
-
-markdown
-     |
-     ↓
-+----------------------+
-| Main |
-+----------------------+
-| + main() |
-| => menu-based system |
-+----------------------+
-
+Main
+ └── uses → StudentDAO
+              ├── uses → Student
+              └── uses → DBConnection
+Student
+ └── contains → id, name, marks1-3
+ └── has methods → getAverage(), getGrade()
 
 ---
 
